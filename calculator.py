@@ -15,6 +15,29 @@ def func(x):
     current = entry.get()
     entry.delete(0, END)
     entry.insert(0,current+str(x))
+
+
+
+plus_list = []
+def plus_func(): # minus func
+    entry_List = entry.get()
+    plus_list.append(int(entry_List))
+    entry.delete(0,END)
+
+def equal_func():
+    plus_list.append(int(entry.get()))# equal func
+    # print(sum(nums_list))
+    entry.delete(0,END)
+    entry.insert(0,sum(plus_list))
+    print(plus_list)
+
+def clear_func():
+    entry.delete(0, END)
+    global plus_list
+    plus_list=[]
+
+
+
 zero = Button(root, text='0', padx=35, pady=15,command=lambda: func(0))
 zero.grid(row=4, column=0)
 one = Button(root, text='1', padx=35, pady=15,command=lambda: func(1))
@@ -35,12 +58,13 @@ eight = Button(root, text='8', padx=35, pady=15,command=lambda: func(8))
 eight.grid(row=3, column=1)
 nine = Button(root, text='9', padx=35, pady=15,command=lambda: func(9))
 nine.grid(row=3, column=2)
-plus = Button(root, text='+', padx=34, pady=15,command=lambda: func())
+
+plus = Button(root, text='+', padx=34, pady=15,command=lambda: plus_func())
 plus.grid(row=4, column=1)
 minus = Button(root, text='-', padx=35, pady=15,command=lambda: func())
 minus.grid(row=4, column=2)
-equal = Button(root, text='=', padx=75.5, pady=15,command=lambda: func())
+equal = Button(root, text='=', padx=75.5, pady=15,command=lambda: equal_func())
 equal.grid(row=5, column=1, columnspan=2)
-clear = Button(root, text='Clear', padx=24, pady=15,command=lambda: entry.delete(0,END))
+clear = Button(root, text='Clear', padx=24, pady=15,command=lambda: clear_func())
 clear.grid(row=5, column=0)
 root.mainloop()
