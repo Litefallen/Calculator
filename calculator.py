@@ -4,38 +4,34 @@ root = Tk()
 root.title('Calculator')
 
 
-
-
-
 # Numeric buttons
 
 entry = Entry(root, width=42)
 entry.grid(row=0, column=0, columnspan=3, pady=10)
-def func(x):
-    current = entry.get()
-    entry.delete(0, END)
-    entry.insert(0,current+str(x))
-
-
-
-plus_list = []
-def plus_func(): # minus func
-    entry_List = entry.get()
-    plus_list.append(int(entry_List))
-    entry.delete(0,END)
 
 def equal_func():
-    plus_list.append(int(entry.get()))# equal func
-    # print(sum(nums_list))
+
+    # equal func
     entry.delete(0,END)
-    entry.insert(0,sum(plus_list))
-    print(plus_list)
+
+
+def func(x):
+    global line
+    line = entry.get()
+    entry.delete(0, END)
+    entry.insert(0,line+str(x))
+
+
+def plus_func(): # minus func
+    res = 0 + int(entry.get())
+    entry.delete(0,END)
+
 
 def clear_func():
     entry.delete(0, END)
-    global plus_list
+    # global plus_list
     plus_list=[]
-
+    return plus_list
 
 
 zero = Button(root, text='0', padx=35, pady=15,command=lambda: func(0))
