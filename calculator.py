@@ -5,25 +5,21 @@ root.title('Calculator')
 root.iconphoto(False, PhotoImage(file='C:/Users/Litefallen/PycharmProjects/Calculator/Custom.gif'))  # the only
 # working way to add an icon without pain in a**
 
-# Numeric buttons
 entry = Entry(root, width=42)
 entry.grid(row=0, column=0, columnspan=3, pady=10)
 result = 0
 prev_function = None
+math_operations_list = ['plus', 'minus', 'multiply', 'divide']
 
 
-def action_func(do):  # minus func
-    arg1 = entry.get()
+def action_func(do):  # get entry
+    arg1 = str(0) + entry.get()
     entry.delete(0, END)
 
     def math_func(action, arg):
         global result
         if not prev_function:
             result += int(arg)
-        # if action == 'multiply':
-        #     result *= int(arg)
-        # if action == 'divide':
-        #     result /= int(arg)
         if action == 'show result':
             if prev_function == 'minus':
                 result -= int(arg)
@@ -31,13 +27,17 @@ def action_func(do):  # minus func
             if prev_function == 'plus':
                 result += int(arg)
                 entry.insert(0, str(result))
+            result = 0
         if action == 'clear':
             result = 0
             entry.delete(0, END)
 
     math_func(do, arg1)
     global prev_function
-    prev_function = do
+    if do in math_operations_list:
+        prev_function = do
+    else:
+        prev_function = None
 
 
 def push_nums(x):
