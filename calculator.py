@@ -2,6 +2,8 @@ from tkinter import *
 
 root = Tk()
 root.title('Calculator')
+root.iconphoto(False, PhotoImage(file='C:/Users/Litefallen/PycharmProjects/Calculator/Custom.gif'))  # the only
+# working way to add an icon without pain in a**
 
 # Numeric buttons
 entry = Entry(root, width=42)
@@ -25,17 +27,18 @@ def action_func(do):  # minus func
         if action == 'show result':
             if prev_function == 'minus':
                 result -= int(arg)
-                entry.insert(0,str(result))
+                entry.insert(0, str(result))
             if prev_function == 'plus':
                 result += int(arg)
-                entry.insert(0,str(result))
+                entry.insert(0, str(result))
         if action == 'clear':
             result = 0
-            entry.delete(0,END)
+            entry.delete(0, END)
 
     math_func(do, arg1)
     global prev_function
     prev_function = do
+
 
 def push_nums(x):
     line = entry.get()
