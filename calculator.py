@@ -13,7 +13,7 @@ math_operations_list = ['plus', 'minus', 'multiply', 'divide']
 
 
 def action_func(do):  # get entry
-    arg1 = str(0) + entry.get()
+    arg1 = entry.get()
     entry.delete(0, END)
 
     def math_func(action, arg):
