@@ -2,7 +2,7 @@ from tkinter import *
 
 root = Tk()
 root.title('Calculator')
-root.iconphoto(False, PhotoImage(file='C:/Users/Litefallen/PycharmProjects/Calculator/Custom.gif'))  # the only
+root.iconphoto(False, PhotoImage(file='Custom.gif'))  # the only
 # working way to add an icon without pain in a** in tkinter
 
 entry = Entry(root, width=42)
