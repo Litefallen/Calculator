@@ -3,7 +3,7 @@ from tkinter import *
 root = Tk()
 root.title('Calculator')
 root.iconphoto(False, PhotoImage(file='C:/Users/Litefallen/PycharmProjects/Calculator/Custom.gif'))  # the only
-# working way to add an icon without pain in a**
+# working way to add an icon without pain in a** in tkinter
 
 entry = Entry(root, width=42)
 entry.grid(row=0, column=0, columnspan=3, pady=10)
