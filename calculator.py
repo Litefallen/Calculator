@@ -2,7 +2,7 @@ from tkinter import *
 
 root = Tk()
 root.title('Calculator')
-root.iconphoto(False, PhotoImage(file='C:/Users/Litefallen/PycharmProjects/Calculator/Custom.gif'))  # the only
+root.iconphoto(False, PhotoImage(file='Custom.gif'))  # the only
 # working way to add an icon without pain in a**
 
 entry = Entry(root, width=42)
@@ -10,11 +10,15 @@ entry.grid(row=0, column=0, columnspan=3, pady=10)
 result = 0
 prev_function = None
 math_operations_list = ['plus', 'minus', 'multiply', 'divide']
+math_symb = {'minus':'-','plus':'+','multiply':'*','divide':'/'}
 
 
 def action_func(do):  # get entry
-    arg1 = entry.get()
-    entry.delete(0, END)
+    if not entry.get():
+        return entry.insert(0,math_symb[do])
+    else:
+        arg1 = entry.get()
+        entry.delete(0, END)
 
     def math_func(action, arg):
         global result
